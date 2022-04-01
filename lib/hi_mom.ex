@@ -24,7 +24,7 @@ defmodule HiMom do
 
   defp inject_mom_name(grettings, mom_name) do
     grettings
-    |> String.replace(~r/{{([\s\S]+)}}/, mom_name)
+    |> String.replace(~r/{{(.+)}}/, mom_name)
   end
 
   defp remove_brackets(string) do
