@@ -5,7 +5,7 @@ defmodule HiMom do
 
   def hi_mom() do
     Langs.lang(@default_lang)
-    |> replace_brackets
+    |> remove_brackets
   end
 
   def hi_mom(mom_name) do
@@ -14,7 +14,7 @@ defmodule HiMom do
 
   def hi_mom(mom_name, lang) when is_nil(mom_name) do
     Langs.lang(lang)
-    |> replace_brackets
+    |> remove_brackets
   end
 
   def hi_mom(mom_name, lang) when is_binary(mom_name) do
@@ -22,7 +22,7 @@ defmodule HiMom do
     |> String.replace(~r/{{([\s\S]+)}}/, mom_name)
   end
 
-  defp replace_brackets(string) do
+  defp remove_brackets(string) do
     string
     |> String.replace(~r/[{}]{2}/, "")
   end
