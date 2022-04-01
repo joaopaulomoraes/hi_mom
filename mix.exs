@@ -11,7 +11,7 @@ defmodule HiMom.MixProject do
       deps: deps(),
       source_url: "https://github.com/joaopaulomoraes/hi-mom",
       package: [
-        name: "Hi Mom",
+        name: "himom",
         licenses: ["MIT"],
         links: %{"GitHub" => "https://github.com/joaopaulomoraes/hi-mom"}
       ]
