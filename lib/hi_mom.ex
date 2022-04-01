@@ -1,18 +1,24 @@
 defmodule HiMom do
-  @moduledoc """
-  Documentation for `HiMom`.
-  """
+  alias Langs
 
-  @doc """
-  Hi mom.
+  @default_lang :en
 
-  ## Examples
-
-      iex> HiMom.hi_mom()
-      "Hi, mom!"
-
-  """
   def hi_mom() do
-    "Hi, mom!"
+    Langs.lang(@default_lang)
+    |> String.replace(~r/[{}]{2}/, "")
+  end
+
+  def hi_mom(mom_name) do
+    hi_mom(mom_name, @default_lang)
+  end
+
+  def hi_mom(mom_name, lang) when is_nil(mom_name) do
+    Langs.lang(lang)
+    |> String.replace(~r/[{}]{2}/, "")
+  end
+
+  def hi_mom(mom_name, lang) when is_binary(mom_name) do
+    Langs.lang(lang)
+    |> String.replace(~r/{{([\s\S]+)}}/, mom_name)
   end
 end
