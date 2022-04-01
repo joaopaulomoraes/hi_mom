@@ -19,6 +19,11 @@ defmodule HiMom do
 
   def hi_mom(mom_name, lang) when is_binary(mom_name) do
     Langs.lang(lang)
+    |> inject_mom_name(mom_name)
+  end
+
+  defp inject_mom_name(grettings, mom_name) do
+    grettings
     |> String.replace(~r/{{([\s\S]+)}}/, mom_name)
   end
 
