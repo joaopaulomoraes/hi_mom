@@ -4,14 +4,17 @@ defmodule HiMom.MixProject do
   def project do
     [
       app: :hi_mom,
-      name: "Hi Mom",
       description: "A blazingly fast Elixir library to say \"Hi\" to your mom!",
       version: "0.1.0",
       elixir: "~> 1.13",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       source_url: "https://github.com/joaopaulomoraes/hi-mom",
-      license: "MIT"
+      package: [
+        name: "Hi Mom",
+        licenses: ["MIT"],
+        links: %{"GitHub" => "https://github.com/joaopaulomoraes/hi-mom"}
+      ]
     ]
   end
 
