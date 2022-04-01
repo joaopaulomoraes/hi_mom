@@ -22,9 +22,9 @@ defmodule HiMom do
     |> inject_mom_name(mom_name)
   end
 
-  defp inject_mom_name(grettings, mom_name) do
-    grettings
-    |> String.replace(~r/{{(.+)}}/, mom_name)
+  defp inject_mom_name(greetings, mom_name) do
+    greetings
+    |> String.replace(~r/\{{2}([^}]+)\}{2}/, mom_name)
   end
 
   defp remove_brackets(string) do
