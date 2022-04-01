@@ -1,6 +1,6 @@
-# HiMom
+# Hi, mom
 
-A blazingly fast Elixir library to say hi to your mom!
+A blazingly fast Elixir library to say "Hi" to your mom!
 
 ## Installation
 
@@ -15,6 +15,6 @@ def deps do
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/hi_mom>.
+## License
+
+This project is licensed under the MIT License.
