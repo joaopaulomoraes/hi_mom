@@ -3,21 +3,21 @@ defmodule HiMom do
 
   @default_lang :en
 
-  def hi_mom() do
+  def hi() do
     Langs.lang(@default_lang)
     |> remove_brackets
   end
 
-  def hi_mom(mom_name) do
-    hi_mom(mom_name, @default_lang)
+  def hi(mom_name) do
+    hi(mom_name, @default_lang)
   end
 
-  def hi_mom(mom_name, lang) when is_nil(mom_name) do
+  def hi(mom_name, lang) when is_nil(mom_name) do
     Langs.lang(lang)
     |> remove_brackets
   end
 
-  def hi_mom(mom_name, lang) when is_binary(mom_name) do
+  def hi(mom_name, lang) when is_binary(mom_name) do
     Langs.lang(lang)
     |> inject_mom_name(mom_name)
   end
