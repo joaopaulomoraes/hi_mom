@@ -1,24 +1,24 @@
-defmodule HiMomTest do
+defmodule HiTest do
   use ExUnit.Case
-  doctest HiMom
+  doctest Hi
 
   test "should say hi mom" do
-    assert HiMom.hi() == "Hi, mom!"
+    assert Hi.mom() == "Hi, mom!"
   end
 
   test "should say hi kate" do
-    assert HiMom.hi("Kate") == "Hi, Kate!"
+    assert Hi.mom("Kate") == "Hi, Kate!"
   end
 
   test "should say hi to maria from pt" do
-    assert HiMom.hi("Maria", :pt) == "Oi, Maria!"
+    assert Hi.mom("Maria", :pt) == "Oi, Maria!"
   end
 
   test "should say hi mom whithout specify a name from pt" do
-    assert HiMom.hi(nil, :pt) == "Oi, mãe!"
+    assert Hi.mom(nil, :pt) == "Oi, mãe!"
   end
 
   test "should not say hi dad" do
-    assert HiMom.hi("dad") != "Hi, mom!"
+    assert Hi.mom("dad") != "Hi, mom!"
   end
 end
