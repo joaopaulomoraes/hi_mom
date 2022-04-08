@@ -10,11 +10,19 @@ defmodule HiTest do
     assert Hi.mom("Kate") == "Hi, Kate!"
   end
 
-  test "should say hi to maria from pt" do
+  test "should say hi to maria in portuguese" do
     assert Hi.mom("Maria", :pt) == "Oi, Maria!"
   end
 
-  test "should say hi mom whithout specify a name from pt" do
+  test "should say hi to esmeralda in spanish" do
+    assert Hi.mom("Esmeralda", :es) == "Hola, Esmeralda!"
+  end
+
+  test "should say hi mom when the name is nil" do
+    assert Hi.mom(nil) == "Hi, mom!"
+  end
+
+  test "should say hi mom whithout specify a name in portuguese" do
     assert Hi.mom(nil, :pt) == "Oi, mãe!"
   end
 
