@@ -1,32 +1,78 @@
 defmodule Hi do
-  alias Langs
+  @moduledoc """
+  A blazingly fast Elixir library to say "Hi" to your mom.
+  """
 
-  @lang :en
+  alias Languages
 
+  @doc """
+  Say "Hi" to your mom.
+
+  ## Examples
+
+      iex> Hi.mom()
+      "Hi, mom!"
+
+  """
   def mom() do
-    Langs.lang(@lang)
+    Languages.get(:en)
     |> remove_brackets
   end
 
-  def mom(name) do
-    mom(name, @lang)
+  @doc """
+  Say "Hi" to your mom in the default language.
+
+  Default language: `:en`.
+
+  ## Parameters
+
+    - `name`: String that represents the mom's name
+
+  ## Examples
+
+      iex> Hi.mom("Kate")
+      "Hi, Kate!"
+
+  """
+  def mom(name), do: mom(name, :en)
+
+  @doc """
+  Say "Hi" to your mom in an especific language.
+
+  ## Parameters
+
+    - `name`: String that represents the mom's name
+    - `language`: Atom representing the language specified
+
+  ## Examples
+
+      iex> Hi.mom(nil, :pt)
+      "Oi, mãe!"
+
+      iex> Hi.mom("Maria", :pt)
+      "Oi, Maria!"
+
+      iex> Hi.mom("Esmeralda", :es)
+      "Hola, Esmeralda!"
+
+  """
+  def mom(name, language) do
+    grettings = Languages.get(language)
+
+    case name do
+      name when is_nil(name) -> grettings |> remove_brackets
+      name when is_binary(name) -> grettings |> inject(name)
+      _ -> mom()
+    end
   end
 
-  def mom(name, lang) when is_nil(name) do
-    Langs.lang(lang)
-    |> remove_brackets
-  end
-
-  def mom(name, lang) when is_binary(name) do
-    Langs.lang(lang)
-    |> inject_name(name)
-  end
-
-  defp inject_name(greeting, name) do
+  @doc false
+  defp inject(greeting, name) do
     greeting
     |> String.replace(~r/\{{2}([^}]+)\}{2}/, name)
   end
 
+  @doc false
   defp remove_brackets(greeting) do
     greeting
     |> String.replace(~r/[{}]{2}/, "")

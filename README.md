@@ -4,14 +4,25 @@ A blazingly fast Elixir library to say "Hi" to your mom!
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `hi_mom` to your list of dependencies in `mix.exs`:
+The package can be installed by adding [`hi_mom`](https://hex.pm/packages/himom) to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:hi_mom, "~> 0.1.0"}
+    {:hi_mom, "~> 0.1.1"}
   ]
+end
+```
+
+## Usage
+
+```elixir
+defmodule Hello do
+  use Hi
+
+  def hello do
+    Hi.mom()
+  end
 end
 ```
 

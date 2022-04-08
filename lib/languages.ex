@@ -1,6 +1,29 @@
-defmodule Langs do
-  def lang(lang) do
-    langs = %{
+defmodule Languages do
+  @moduledoc """
+  Map of all supported greetings.
+  """
+
+  @doc """
+  Returns "Hi, mom!" in the specified language.
+
+  ## Parameters
+
+    - `lang`: Atom representing the language of the specified
+
+  ## Examples
+
+      iex> Languages.get(:en)
+      "Hi, {{mom}}!"
+
+      iex> Languages.get(:pt)
+      "Oi, {{mãe}}!"
+
+      iex> Languages.get(:es)
+      "Holla, {{mamá}}!"
+
+  """
+  def get(language) do
+    %{
       :ar => "مرحباً, {{امي}}!",
       :ar_IQ => "هلا, {{يمه}}!",
       :ca => "Hola, {{mamà}}!",
@@ -33,8 +56,6 @@ defmodule Langs do
       :ua => "Привіт, {{мама}}!",
       :vi => "Xin chào, {{mẹ}}!",
       :zh => "你好，{{妈妈}}!"
-    }
-
-    langs[lang]
+    }[language]
   end
 end
