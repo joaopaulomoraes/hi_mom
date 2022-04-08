@@ -4,7 +4,7 @@ A blazingly fast Elixir library to say "Hi" to your mom!
 
 ## Installation
 
-The package can be installed by adding [`hi_mom`](https://hex.pm/packages/himom) to your list of dependencies in `mix.exs`:
+The package can be installed by adding [`hi_mom`](https://hex.pm/packages/hi_mom) to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
