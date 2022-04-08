@@ -18,7 +18,7 @@ end
 
 ```elixir
 defmodule Hello do
-  use Hi
+  alias Hi
 
   def hello do
     Hi.mom()
