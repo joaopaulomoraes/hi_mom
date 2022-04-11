@@ -23,7 +23,7 @@ defmodule Languages do
 
   """
   def get(language) do
-    %{
+    Map.get(%{
       :ar => "مرحباً, {{امي}}!",
       :ar_IQ => "هلا, {{يمه}}!",
       :ca => "Hola, {{mamà}}!",
@@ -56,6 +56,6 @@ defmodule Languages do
       :ua => "Привіт, {{мама}}!",
       :vi => "Xin chào, {{mẹ}}!",
       :zh => "你好，{{妈妈}}!"
-    }[language]
+    }, language)
   end
 end
